@@ -17,6 +17,6 @@ Here I am upsampling from ```128x128``` to ```256x256``` which is equivalent to 
 ![anime](https://vee-upatising.github.io/images/sr.jpg)
 
 # Model Architecture
-![model](https://raw.githubusercontent.com/vee-upatising/DLSS/master/Results/model.png)
+![model](https://i.imgur.com/ebyJ7Qd.png)
 
 # [Kaggle Notebook](https://www.kaggle.com/function9/deep-learned-super-sampling)
