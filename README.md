@@ -15,6 +15,7 @@ Here I am upsampling from ```128x128``` to ```256x256``` which is equivalent to 
 
 ![flip](https://vee-upatising.github.io/images/flip.gif)
 ![anime](https://vee-upatising.github.io/images/sr.jpg)
+![comparison](https://raw.githubusercontent.com/vee-upatising/Super-Resolution-GAN/master/edited.png)
 
 # Model Architecture
 ![model](https://i.imgur.com/ebyJ7Qd.png)
