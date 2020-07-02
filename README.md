@@ -1,6 +1,6 @@
 # Deep Learned Super Sampling
 ## [Try The Web App](https://vee-upatising.github.io/model.html)
-Super Sampling Images to ```16``` Times Their Original Size using Convolutional Neural Networks <br/>
+Super Sampling Images to ```4``` Times Their Original Size using Convolutional Neural Networks <br/>
 
 
 
@@ -11,7 +11,7 @@ Due to memory constraints, I can only work with smaller images
 
 # Results
 I compared [Nearest Neighbor](https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.resize) Interpolation to my Deep Learned Super Sampling program <br/>
-Here I am upsampling from ```64x64``` to ```256x256``` which is equivalent to increasing the size by ```16``` times
+Here I am upsampling from ```128x128``` to ```256x256``` which is equivalent to increasing the size by ```16``` times
 
 ![flip](https://vee-upatising.github.io/images/flip.gif)
 ![anime](https://vee-upatising.github.io/images/sr.jpg)
