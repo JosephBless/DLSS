@@ -1,6 +1,7 @@
 # Deep Learned Super Sampling
 Super Sampling Images to ```16``` Times Their Original Size using Convolutional Neural Networks <br/>
-[Try The Web App](https://vee-upatising.github.io/model.html)
+
+# [Try The Web App](https://vee-upatising.github.io/model.html)
 
 # Inspiration
 This [Computerphile Video](https://www.youtube.com/watch?v=_DPRt3AcUEY) inpsired me to try to code a DLSS program <br/>
