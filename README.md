@@ -3,7 +3,7 @@
 ![pokemon2](https://i.imgur.com/FZ66KOm.jpg)
 ![pokemon3](https://i.imgur.com/Sf1hnmt.jpg)
 
-Using Deep Convolutional GANS to super sample images and increase their resolution <br/>
+Using Deep Convolutional GANS to super sample images and increase their resolution.<br/>
 
 # How To Use This Repository
 * ## Requirements
@@ -18,7 +18,7 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
 * ## Documentation
   * ## [DLSS GAN Training](https://nbviewer.jupyter.org/github/vee-upatising/DLSS/blob/master/DLSS%20GAN%20Training.ipynb)
       * This script is used to define the DCGAN class, train the Generative Adversarial Network, generate samples, and save the model at every epoch interval.
-      * The Generator and Discriminator models were designed to be trained on an 8 GB GPU. If you have a less powerful GPU then decrease the conv_filter and kernel parameters accordingly.
+      * The Generator and Discriminator models were designed to be trained on an 8 GB GPU. If you have a less powerful GPU then decrease the ```conv_filter``` and ```kernel``` parameters accordingly.
 
       * ### User Specified Parameters:
           * ```input_path```: File path pointing to folder containing the low resolution dataset.
@@ -36,15 +36,15 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
 
        * ### DCGAN Class:
           * ```__init__(self)```: The class is initialized by defining the dimensions of the input vector as well as the output image. The Generator and Discriminator models get initialized using ```build_generator()``` and ```build_discriminator()```.
-          * ```build_generator(self)```: Defines Generator model. The Convolutional and UpSampling2D layers increase the resolution of the image by a factor of ```super_sampling_ratio * 2```. Gets called when the DCGAN class is initialized.
-          * ```build_discriminator(self)```: Defines Discriminator model. The Convolutional and MaxPooling2D layers downsample from ```input_dimensions``` to ```1``` scalar prediction. Gets called when the DCGAN class is initialized.
+          * ```build_generator(self)```: Defines [Generator model](https://github.com/vee-upatising/DLSS/blob/master/README.md#generator-model-architecture). The Convolutional and UpSampling2D layers increase the resolution of the image by a factor of ```super_sampling_ratio * 2```. Gets called when the DCGAN class is initialized.
+          * ```build_discriminator(self)```: Defines [Discriminator model](https://github.com/vee-upatising/DLSS/blob/master/README.md#discriminator-model-architecture). The Convolutional and MaxPooling2D layers downsample from ```input_dimensions``` to ```1``` scalar prediction. Gets called when the DCGAN class is initialized.
           * ```load_data(self)```: Loads data from user specified file path, ```data_path```. Reshapes images from ```input_path``` to have ```input_dimensions```. Reshapes  images from ```output_path``` to have ```output_dimensions```. Gets called in the ```train()``` method.
           * ```train(self, epochs, batch_size, save_interval)```: Trains the Generative Adversarial Network. Each epoch trains the model using the entire dataset split up into chunks defined by ```batch_size```. If epoch is at ```save_interval```, then the method calls ```save_imgs()``` to generate samples and saves the model of the current epoch.
-          * ```save_imgs(self, epoch, gen_imgs, interpolated)```: Saves the model and generates prediction samples for a given epoch at the user specified path, ```model_path```. Each sample contains 8 interpolated images and Deep Learned Super Sampled images for comparison.
+          * ```save_imgs(self, epoch, gen_imgs, interpolated)```: Saves the model and [generates prediction samples](https://github.com/vee-upatising/DLSS/blob/master/README.md#generated-training-sample) for a given epoch at the user specified path, ```model_path```. Each sample contains 8 interpolated images and Deep Learned Super Sampled images for comparison.
           
   * ## [Load Model and Analyze Results](https://nbviewer.jupyter.org/github/vee-upatising/DLSS/blob/master/Load%20Model%20and%20Analyze%20Results.ipynb)
-    * This script is used to perform inference on Generator models trained by the ```DLSS GAN Training``` script and interpolate points in the latent space of the Generator model input.
-    * The script will perform DLSS on all images inside the folder specified in ```dataset_path```. You can insert frames of a video in here to create GIFs such as the one in the Results section of this document.
+    * This script is used to super sample images using the Generator model trained by the ```DLSS GAN Training``` script.
+    * The script will perform DLSS on all images inside the folder specified in ```dataset_path```. You can insert frames of a video in here to create GIFs such as the one in the [results](https://github.com/vee-upatising/DLSS/blob/master/README.md#results) section of this document.
     * ### User Specified Parameters:
         * ```input_dimensions```: Dimensions of the image resolution the model takes as input.
         * ```output_dimensions```: Dimensions of the image resolution the model takes as output.
@@ -56,8 +56,7 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
 
 
 * ## Results
-  * I compared [Nearest Neighbor](https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.resize) Interpolation to my Deep Learned Super Sampling program <br/>
-  * Here I am upsampling from ```128x128``` to ```256x256``` which is equivalent to increasing the size by ```4``` times
+  * The results of [Nearest Neighbor Interpolation](https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.resize) are compared to the DLSS algorithm. <br/>
 
 ![flip](https://vee-upatising.github.io/images/flip.gif)
 ![anime](https://vee-upatising.github.io/images/sr.jpg)
@@ -67,9 +66,9 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
 ![Training](https://i.imgur.com/wCliEAM.png)
 
 * ## Generator Model Architecture
-  * Using ```(5,5)``` Convolutional Kernels, with ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3)``` </br>
+  * Using ```(5,5)``` Convolutional Kernels with ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3)``` </br>
 ![Generator](https://i.imgur.com/Pi8gTJR.jpg)
 
 * ## Discriminator Model Architecture
-  * Using ```(5,5)``` Convolutional Kernels, with ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3)``` </br>
+  * Using ```(5,5)``` Convolutional Kernels with ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3)``` </br>
 ![Discriminator](https://i.imgur.com/Ll1UA4p.jpg)
