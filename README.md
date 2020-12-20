@@ -1,13 +1,11 @@
 # Deep Learned Super Sampling
+![pokemon1](https://i.imgur.com/KT4mZPg.jpg)
+![pokemon2](https://i.imgur.com/FZ66KOm.jpg)
+![pokemon3](https://i.imgur.com/Sf1hnmt.jpg)
+
+Using Deep Convolutional GANS to super sample images and increase their resolution <br/>
+
 ## [Try The Web App](https://vee-upatising.github.io/model.html)
-Super Sampling Images to ```4``` Times Their Original Size using Convolutional Neural Networks <br/>
-
-
-
-# Inspiration
-This [Computerphile Video](https://www.youtube.com/watch?v=_DPRt3AcUEY) inpsired me to try to code a DLSS program <br/>
-The video talks about super sampling from 1080p to 4K <br/>
-Due to memory constraints, I can only work with smaller images
 
 # Results
 I compared [Nearest Neighbor](https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.resize) Interpolation to my Deep Learned Super Sampling program <br/>
