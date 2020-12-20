@@ -24,7 +24,7 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
           * ```output_path```: File path pointing to folder containing the high resolution dataset.
           * ```input_dimensions```: Dimensions of the images inside the low resolution dataset. The image sizes must be compatible meaning ```output_dimensions / input_dimensions``` is a multiple of ```2```.
           * ```output_dimensions```: Dimensions of the images inside the high resolution dataset. The image sizes must be compatible meaning ```output_dimensions / input_dimensions``` is a multiple of ```2```.
-          * ```super_sampling_ratio```: Integer representing the ratio of the difference in size between the two image resolutions.
+          * ```super_sampling_ratio```: Integer representing the ratio of the difference in size between the two image resolutions. This integer specifies how many times ```Upsampling2D``` and ```MaxPooling2D``` are used in the models.
           * ```model_path```: File path pointing to folder where you want to save to model as well as generated samples.
           * ```interval```: Integer representing how many epochs between saving your model.
           * ```epochs```: Integer representing how many epochs to train the model.
