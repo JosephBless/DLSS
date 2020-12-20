@@ -5,7 +5,43 @@
 
 Using Deep Convolutional GANS to super sample images and increase their resolution <br/>
 
-## [Try The Web App](https://vee-upatising.github.io/model.html)
+# How To Use This Repository
+* ## Requirements
+  * Python 3
+  * Keras (I use ```2.3.1```)
+  * Tensorflow (I use ```1.14.0```)
+  * Sklearn
+  * Numpy
+  * Matplotlib
+  * PIL
+* ## [Web App](https://vee-upatising.github.io/model.html)
+* ## Documentation
+  * ## [DLSS GAN Training](https://nbviewer.jupyter.org/github/vee-upatising/DLSS/blob/master/DLSS%20GAN%20Training.ipynb)
+      * This script is used to define the DCGAN class, train the Generative Adversarial Network, generate samples, and save the model at every epoch interval.
+      * The Generator and Discriminator models were designed to be trained on an 8 GB GPU. If you have a less powerful GPU then decrease the conv_filter and kernel parameters accordingly.
+
+      * ### User Specified Parameters:
+          * ```input_path```: File path pointing to folder containing the low resolution dataset.
+          * ```output_path```: File path pointing to folder containing the high resolution dataset.
+          * ```input_dimensions```: Dimensions of the images inside the low resolution dataset. The image sizes must be compatible meaning ```output_dimensions / input_dimensions``` is a multiple of ```2```.
+          * ```output_dimensions```: Dimensions of the images inside the high resolution dataset. The image sizes must be compatible meaning ```output_dimensions / input_dimensions``` is a multiple of ```2```.
+          * ```super_sampling_ratio```: Integer representing the ratio of the difference in size between the two image resolutions.
+          * ```model_path```: File path pointing to folder where you want to save to model as well as generated samples.
+          * ```interval```: Integer representing how many epochs between saving your model.
+          * ```epochs```: Integer representing how many epochs to train the model.
+          * ```batch```: Integer representing how many images to train at one time.
+          * ```conv_filters```: Integer representing how many convolutional filters are used in each convolutional layer of the Generator and the Discrminator.
+          * ```kernel```: Tuple representing the size of the kernels used in the convolutional layers.
+          * ```png```: Boolean flag, set to True if the data has PNGs to remove alpha layer from images.
+
+       * ### DCGAN Class:
+          * ```__init__(self)```: The class is initialized by defining the dimensions of the input vector as well as the output image. The Generator and Discriminator models get initialized using ```build_generator()``` and ```build_discriminator()```.
+          * ```build_generator(self)```: Defines Generator model. The Convolutional and UpSampling2D layers increase the resolution of the image by a factor of ```super_sampling_ratio * 2```. Gets called when the DCGAN class is initialized.
+          * ```build_discriminator(self)```: Defines Discriminator model. The Convolutional and MaxPooling2D layers downsample from ```input_dimensions``` to ```1``` scalar prediction. Gets called when the DCGAN class is initialized.
+          * ```load_data(self)```: Loads data from user specified file path, ```data_path```. Reshapes images from ```input_path``` to have ```input_dimensions```. Reshapes  images from ```output_path``` to have ```output_dimensions```. Gets called in the ```train()``` method.
+          * ```train(self, epochs, batch_size, save_interval)```: Trains the Generative Adversarial Network. Each epoch trains the model using the entire dataset split up into chunks defined by ```batch_size```. If epoch is at ```save_interval```, then the method calls ```save_imgs()``` to generate samples and saves the model of the current epoch.
+          * ```save_imgs(self, epoch, gen_imgs, interpolated)```: Saves the model and generates prediction samples for a given epoch at the user specified path, ```model_path```. Each sample contains 8 interpolated images and Deep Learned Super Sampled images for comparison.
+
 
 # Results
 I compared [Nearest Neighbor](https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.resize) Interpolation to my Deep Learned Super Sampling program <br/>
