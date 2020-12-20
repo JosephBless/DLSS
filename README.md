@@ -41,9 +41,21 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
           * ```load_data(self)```: Loads data from user specified file path, ```data_path```. Reshapes images from ```input_path``` to have ```input_dimensions```. Reshapes  images from ```output_path``` to have ```output_dimensions```. Gets called in the ```train()``` method.
           * ```train(self, epochs, batch_size, save_interval)```: Trains the Generative Adversarial Network. Each epoch trains the model using the entire dataset split up into chunks defined by ```batch_size```. If epoch is at ```save_interval```, then the method calls ```save_imgs()``` to generate samples and saves the model of the current epoch.
           * ```save_imgs(self, epoch, gen_imgs, interpolated)```: Saves the model and generates prediction samples for a given epoch at the user specified path, ```model_path```. Each sample contains 8 interpolated images and Deep Learned Super Sampled images for comparison.
+          
+  * ## [Load Model and Analyze Results](https://nbviewer.jupyter.org/github/vee-upatising/DLSS/blob/master/Load%20Model%20and%20Analyze%20Results.ipynb)
+    * This script is used to perform inference on Generator models trained by the ```DLSS GAN Training``` script and interpolate points in the latent space of the Generator model input.
+    * The script will perform DLSS on all images inside the folder specified in ```dataset_path```. You can insert frames of a video in here to create GIFs such as the one in the Results section of this document.
+    * ### User Specified Parameters:
+        * ```input_dimensions```: Dimensions of the image resolution the model takes as input.
+        * ```output_dimensions```: Dimensions of the image resolution the model takes as output.
+        * ```super_sampling_ratio```: Integer representing the ratio of the difference in size between the two image resolutions. Used for setting ratio of image subplots.
+        * ```model_path```: File path pointing to folder where you want to save to model as well as generated samples.
+        * ```dataset_path```: File path pointing to folder containing dataset you want to perform DLSS on.
+        * ```save_path```: File path pointing to folder where you want to save generated predictions of the trained model.
+        * ```png```: Boolean flag, set to True if the data has PNGs to remove alpha layer from images.
 
 
-# Results
+* ## Results
 I compared [Nearest Neighbor](https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.resize) Interpolation to my Deep Learned Super Sampling program <br/>
 Here I am upsampling from ```128x128``` to ```256x256``` which is equivalent to increasing the size by ```4``` times
 
@@ -51,7 +63,13 @@ Here I am upsampling from ```128x128``` to ```256x256``` which is equivalent to 
 ![anime](https://vee-upatising.github.io/images/sr.jpg)
 ![comparison](https://raw.githubusercontent.com/vee-upatising/Super-Resolution-GAN/master/edited.png)
 
-# Model Architecture
-![model](https://i.imgur.com/ebyJ7Qd.png)
+* ## Generated Training Sample
+![Training](https://i.imgur.com/isC6hHn.png)
 
-# [Kaggle Notebook](https://www.kaggle.com/function9/deep-learned-super-sampling)
+* ## Generator Model Architecture
+  * Using ```(5,5)``` Convolutional Kernels, with ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3) </br>
+![Generator](https://i.imgur.com/StUbcVk.png)
+
+* ## Discriminator Model Architecture
+  * Using ```(5,5)``` Convolutional Kernels, with ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3) </br>
+![Discriminator](https://i.imgur.com/3GrMPwO.png)
