@@ -94,7 +94,7 @@ class DCGAN():
         self.generator = self.build_generator()
         generator = self.generator
 
-        # The generator takes noise as input and generates imgs
+        # The generator takes low resolution images as input and generates high resolution images
         z = Input(shape = self.latent_dim)
         img = self.generator(z)
 
@@ -122,11 +122,12 @@ class DCGAN():
             for file in f:
                 if '.jpg' in file or 'png' in file:
                     paths.append(os.path.join(r, file))
-        # For each file add normal resolution and low resolution to arrays
+                    
+        # For each file add high resolution image to array
         for path in paths:
             img = Image.open(path)
             
-            # Resize Images
+            # Resize Image
             y = np.array(img.resize((self.img_rows,self.img_cols)))
             
             # Remove alpha layer if imgaes are PNG
@@ -142,11 +143,12 @@ class DCGAN():
             for file in f:
                 if '.jpg' in file or 'png' in file:
                     paths.append(os.path.join(r, file))
-        # For each file add normal resolution and low resolution to arrays
+                    
+        # For each file add low resolution image to array
         for path in paths:
             img = Image.open(path)
             
-            # Resize Images
+            # Resize Image
             x = np.array(img.resize((self.latent_dim[0],self.latent_dim[1])))
             
             # Remove alpha layer if imgaes are PNG
@@ -261,7 +263,7 @@ class DCGAN():
         
         # Normalizing data to be between 0 and 1
         X_train = X_train / 255
-        Y_train = Y_train/255
+        Y_train = Y_train / 255
 
         # Adversarial ground truths
         valid = np.ones((batch_size, 1))
