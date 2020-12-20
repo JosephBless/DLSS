@@ -1,4 +1,4 @@
-# Deep Learned Super Sampling
+# Deep Learning Super Sampling
 Using Deep Convolutional GANS to super sample images and increase their resolution.<br/>
 ![pokemon1](https://i.imgur.com/KT4mZPg.jpg)
 ![pokemon2](https://i.imgur.com/FZ66KOm.jpg)
