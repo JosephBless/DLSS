@@ -35,7 +35,7 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
           * ```png```: Boolean flag, set to True if the data has PNGs to remove alpha layer from images.
 
        * ### DCGAN Class:
-          * ```__init__(self)```: The class is initialized by defining the dimensions of the input vector as well as the output image. The Generator and Discriminator models get initialized using ```build_generator()``` and ```build_discriminator()```.
+          * ```__init__(self)```: The class is initialized by defining the dimensions of the input image as well as the output image. The Generator and Discriminator models get initialized using ```build_generator()``` and ```build_discriminator()```.
           * ```build_generator(self)```: Defines [Generator model](https://github.com/vee-upatising/DLSS/blob/master/README.md#generator-model-architecture). The ```Convolutional``` and ```UpSampling2D``` layers increase the resolution of the image by a factor of ```super_sampling_ratio * 2```. Gets called when the DCGAN class is initialized.
           * ```build_discriminator(self)```: Defines [Discriminator model](https://github.com/vee-upatising/DLSS/blob/master/README.md#discriminator-model-architecture). The ```Convolutional``` and ```MaxPooling2D``` layers downsample from ```output_dimensions``` to ```1``` scalar prediction. Gets called when the DCGAN class is initialized.
           * ```load_data(self)```: Loads data from user specified file path, ```data_path```. Reshapes images from ```input_path``` to have ```input_dimensions```. Reshapes  images from ```output_path``` to have ```output_dimensions```. Gets called in the ```train()``` method.
@@ -49,9 +49,9 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
         * ```input_dimensions```: Dimensions of the image resolution the model takes as input.
         * ```output_dimensions```: Dimensions of the image resolution the model takes as output.
         * ```super_sampling_ratio```: Integer representing the ratio of the difference in size between the two image resolutions. Used for setting ratio of image subplots.
-        * ```model_path```: File path pointing to folder where you want to save to model as well as generated samples.
-        * ```dataset_path```: File path pointing to folder containing dataset you want to perform DLSS on.
-        * ```save_path```: File path pointing to folder where you want to save generated predictions of the trained model.
+        * ```model_path```: File path pointing to the folder where you want to save to model as well as generated samples.
+        * ```dataset_path```: File path pointing to the folder containing dataset you want to perform DLSS on.
+        * ```save_path```: File path pointing to the folder where you want to save generated predictions of the trained model.
         * ```png```: Boolean flag, set to True if the data has PNGs to remove alpha layer from images.
 
 
