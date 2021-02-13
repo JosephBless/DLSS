@@ -10,6 +10,7 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
   * Keras (I use ```2.3.1```)
   * Tensorflow (I use ```1.14.0```)
   * Sklearn
+  * Skimage
   * Numpy
   * Matplotlib
   * PIL
