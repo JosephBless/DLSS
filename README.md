@@ -68,9 +68,9 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
 * ## Generator Model Architecture
   * Using ```(5,5)``` Convolutional Kernels with ```64``` filters.
   * ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3)``` </br>
-![Generator](https://i.imgur.com/Pi8gTJR.jpg)
+![Generator](https://i.imgur.com/Ll1UA4p.jpg)
 
 * ## Discriminator Model Architecture
   * Using ```(5,5)``` Convolutional Kernels with ```64``` filters.
   * ```input_dimensions = (128,128,3)``` and ```output_dimensions = (256,256,3)``` </br>
-![Discriminator](https://i.imgur.com/Ll1UA4p.jpg)
+![Discriminator](https://i.imgur.com/Pi8gTJR.jpg)
