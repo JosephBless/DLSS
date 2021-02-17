@@ -14,7 +14,6 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
   * Numpy
   * Matplotlib
   * PIL
-* ## [Web App](https://vee-upatising.github.io/model.html)
 * ## Documentation
   * ## [DLSS GAN Training](https://nbviewer.jupyter.org/github/vee-upatising/DLSS/blob/master/DLSS%20GAN%20Training.ipynb)
       * This script is used to define the DCGAN class, train the Generative Adversarial Network, generate samples, and save the model at every epoch interval.
