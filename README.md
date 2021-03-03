@@ -5,6 +5,7 @@ Using Deep Convolutional GANS to super sample images and increase their resoluti
 ![pokemon3](https://i.imgur.com/Sf1hnmt.jpg)
 
 # How To Use This Repository
+* ## [Tutorial](https://aix.web.tr/en/deep-learning-super-sampling-using-generative-adversarial-networks/)
 * ## Requirements
   * Python 3
   * Keras (I use ```2.3.1```)
