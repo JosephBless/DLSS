@@ -48,8 +48,7 @@ interval = 5
 # How many epochs to train the model
 epoch = 100
 
-# How many images to train at one time.
-# Ideally this number would be a factor of the size of your dataset
+# How many images to train at one time. Ideally this number would be a factor of the size of your dataset
 batch = 25
 
 # How many convolutional filters for each convolutional layer of the generator and the discrminator
