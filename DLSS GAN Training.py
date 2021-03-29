@@ -45,7 +45,7 @@ model_path = r"C:\Users\Vee\Desktop\python\GAN\DLSS\results"
 # How many epochs between saving your model
 interval = 5
 
-# How many epochs to run the model
+# How many epochs to train the model
 epoch = 100
 
 # How many images to train at one time.
