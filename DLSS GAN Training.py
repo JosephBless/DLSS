@@ -161,7 +161,7 @@ class DCGAN():
         y_train = np.array(data)
         y_train = y_train.reshape(len(data),self.img_rows,self.img_cols,self.channels)
         x_train = np.array(small)
-        x_train = x_train.reshape(len(small),self.latent_dim[0],self.latent_dim[0],self.latent_dim[2])
+        x_train = x_train.reshape(len(small),self.latent_dim[0],self.latent_dim[1],self.latent_dim[2])
         
         del data
         del small
